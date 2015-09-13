@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Just Java</string>
-
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="high_coffee_message">That\'s a lot of coffee!</string>
+    <string name="max_coffee_message">Maximum coffees.</string>
+    <string name="min_order_message">You must order at least %d coffee.</string>
+    <string name="max_order_message">You can not order more than %d coffee.</string>
+    <string name="order_thanks">Thanks! Order Number %d.</string>
 </resources>
