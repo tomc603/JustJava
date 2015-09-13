@@ -13,7 +13,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
     final double coffeePrice = 2.75;
     boolean quantityAlert = false;
-    int coffeeCount = 0;
+    int coffeeCount = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +33,19 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Place the coffee order and give the user an order number.
      * <p/>
-     * Reset the display after the order is placed.
+     * Check for minimum and maximum coffee order quantity, reset the display after
+     * the order is placed.
      */
     public void orderPlace() {
         Random r = new Random();
 
-        displayMessage(String.format(Locale.getDefault(), "Thanks! Order Number %d.", r.nextInt()));
+        if (coffeeCount < getResources().getInteger(R.integer.min_coffee)) {
+            displayMessage(String.format(Locale.getDefault(), getString(R.string.min_order_message), getResources().getInteger(R.integer.min_coffee)));
+        } else if (coffeeCount > getResources().getInteger(R.integer.max_coffee)) {
+            displayMessage(String.format(Locale.getDefault(), getString(R.string.max_order_message), getResources().getInteger(R.integer.max_coffee)));
+        } else {
+            displayMessage(String.format(Locale.getDefault(), getString(R.string.order_thanks), r.nextInt()));
+        }
         quantityReset();
     }
 
@@ -46,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
      * This method resets the order quantity, the display, and the alert for orders over 25 coffees
      */
     public void quantityReset() {
-        coffeeCount = 0;
+        coffeeCount = getResources().getInteger(R.integer.min_coffee);
         quantityAlert = false;
         displayQuantity();
     }
@@ -67,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Increases or decreases coffee count, checking for minimum (0) and maximum (100)
-     *
+     * <p/>
      * The user is alerted when they attempt to order more than the maximum, and they're
      * given a special message when they increase their order to more than 25.
      *
@@ -75,14 +82,14 @@ public class MainActivity extends AppCompatActivity {
      */
     private void updateQuantity(int number) {
         coffeeCount += number;
-        if (coffeeCount < 0) {
-            coffeeCount = 0;
-        } else if ((coffeeCount > 25) && (!quantityAlert)) {
-            displayMessage("That's a lot of coffee!");
+        if (coffeeCount < getResources().getInteger(R.integer.min_coffee)) {
+            coffeeCount = getResources().getInteger(R.integer.min_coffee);
+        } else if ((coffeeCount > getResources().getInteger(R.integer.high_coffee_count)) && (!quantityAlert)) {
+            displayMessage(getResources().getString(R.string.high_coffee_message));
             quantityAlert = true;
-        } else if (coffeeCount > 100) {
-            coffeeCount = 100;
-            displayMessage("Maximum coffees");
+        } else if (coffeeCount > getResources().getInteger(R.integer.max_coffee)) {
+            coffeeCount = getResources().getInteger(R.integer.max_coffee);
+            displayMessage(getResources().getString(R.string.max_coffee_message));
         }
         displayQuantity();
     }
@@ -109,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Updates the price TextView, formatting the price in the local currency.
-     *
+     * <p/>
      * Price is calculated by the calculateTotal() method.
      */
     private void displayPrice() {
