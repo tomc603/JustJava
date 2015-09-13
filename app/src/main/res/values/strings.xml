@@ -7,4 +7,9 @@
     <string name="min_order_message">You must order at least %d coffee.</string>
     <string name="max_order_message">You can not order more than %d coffee.</string>
     <string name="order_thanks">Thanks! Order Number %d.</string>
+    <string name="quantity">Quantity</string>
+    <string name="increase">+</string>
+    <string name="decrease">-</string>
+    <string name="total">Total</string>
+    <string name="order">Order</string>
 </resources>
