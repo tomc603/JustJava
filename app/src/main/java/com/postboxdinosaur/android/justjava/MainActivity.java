@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Handle Order button click
      *
-     * @param view Current view
+     * @param view calling view
      */
     public void orderClicked(View view) {
         Log.d("Method", "orderClicked()");
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Handle topping checkbox checked
      *
-     * @param view Current view
+     * @param view calling view
      */
     public void toppingChecked(View view) {
         Log.d("Method", "toppingChecked()");
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Handle decrease button click
      *
-     * @param view Current view
+     * @param view calling view
      */
     public void decreaseQuantity(View view) {
         Log.d("Method", "decreaseQuantity()");
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Handle increase button click
      *
-     * @param view Current view
+     * @param view calling view
      */
     public void increaseQuantity(View view) {
         Log.d("Method", "increaseQuantity()");
