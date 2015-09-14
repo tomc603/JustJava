@@ -1,4 +1,4 @@
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~     Copyright 2015 Tom Cameron
   ~
   ~        Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,6 +25,8 @@
     <string name="max_order_message">You can not order more than %d coffee.</string>
     <string name="order_thanks">Thanks! Order Number %d.</string>
     <string name="quantity">Quantity</string>
+    <string name="toppings">Toppings</string>
+    <string name="whipped_cream">Whipped Cream</string>
     <string name="increase">+</string>
     <string name="decrease">-</string>
     <string name="total">Total</string>

@@ -31,10 +31,25 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/quantity_label_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:text="@string/toppings" />
+
+        <CheckBox
+            android:id="@+id/whipped_checkbox_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toppingChecked"
+            android:paddingStart="24dp"
+            android:text="@string/whipped_cream"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
             android:text="@string/quantity" />
 
         <LinearLayout
@@ -46,7 +61,7 @@
                 android:id="@+id/quantity_decrease_button"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:onClick="quantityDecrement"
+                android:onClick="decreaseQuantity"
                 android:text="@string/decrease"
                 android:textAllCaps="true" />
 
@@ -64,14 +79,13 @@
                 android:id="@+id/quantity_increase_button"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:onClick="quantityIncrement"
+                android:onClick="increaseQuantity"
                 android:text="@string/increase"
                 android:textAllCaps="true" />
 
         </LinearLayout>
 
         <TextView
-            android:id="@+id/price_label_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
